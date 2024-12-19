@@ -8,6 +8,10 @@ struct FeedbackScreen: View {
     let product: ProductModel
     
     var body: some View {
+        let gestureHideKeyboard = TapGesture().onEnded {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
+        
         ScrollView {
             VStack(alignment: .leading) {
                 HStack(alignment: .center) {
@@ -79,6 +83,8 @@ struct FeedbackScreen: View {
             }
             .padding(.horizontal)
         }
+        .simultaneousGesture(gestureHideKeyboard)
+
     }
     
     private func estimatedProduct(value: Int) -> String {
@@ -95,6 +101,7 @@ struct FeedbackScreen: View {
     }
     
 }
+
 
 #Preview {
     let product = ProductModel(
