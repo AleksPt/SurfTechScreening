@@ -11,7 +11,7 @@ import SwiftUI
 struct Surf_alexiosdevApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainScreen()
         }
     }
 }
